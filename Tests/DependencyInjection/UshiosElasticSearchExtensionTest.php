@@ -2,9 +2,11 @@
 
 namespace Ushios\Bundle\ElasticSearchBundle\Tests\DependencyInjection;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Ushios\Bundle\ElasticSearchBundle\DependencyInjection\UshiosElasticSearchExtension;
 
-class UshiosElasticSearchExtensionTest extends WebTestCase
+class UshiosElasticSearchExtensionTest extends TestCase
 {
     /**
      * service container.
@@ -17,9 +19,20 @@ class UshiosElasticSearchExtensionTest extends WebTestCase
      */
     public function setUp()
     {
-        $this->app = new \AppKernel('test', true);
-        $this->app->boot();
-        $this->container = $this->app->getContainer();
+        if (!class_exists('Elasticsearch\\Client')) {
+            $this->markTestSkipped('Elasticsearch is not available.');
+        }
+
+        $this->container = new ContainerBuilder();
+
+        $config = array(
+            'default' => array(
+                'hosts' => array('localhost'),
+            ),
+        );
+
+        $extension = new UshiosElasticSearchExtension();
+        $extension->load(array(array('client' => $config)), $this->container);
 
         parent::setUp();
     }
@@ -30,10 +43,8 @@ class UshiosElasticSearchExtensionTest extends WebTestCase
      */
     public function testGetEsClient()
     {
-        /*
         $es = $this->container->get('ushios_elastic_search_client.default');
         
         $this->assertInstanceOf('\ElasticSearch\Client', $es);
-        */
     }
 }
