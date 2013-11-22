@@ -27,7 +27,6 @@
         "psr-0": { "Ushios\\Bundle\\ElasticSearchBundle": "" }
     },
     "target-dir": "Ushios/Bundle/ElasticSearchBundle",
-    "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
             "dev-master": "0.0.x-dev"
