@@ -1,7 +1,7 @@
 parameters:
-#    ushios_elastic_search.example.class: Ushios\Bundle\ElasticSearchBundle\Example
+    ushios_elastic_search.resetter.class: Ushios\Bundle\ElasticSearchBundle\Resetter
 
 services:
-#    ushios_elastic_search.example:
-#        class: %ushios_elastic_search.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    ushios_elastic_search.resetter:
+        class: %ushios_elastic_search.resetter.class%
+        arguments: [ @ushios_elastic_search_client, %ushios_elastic_search.setup%, %ushios_elastic_search.index.params%, %ushios_elastic_search.mapping.params% ]
