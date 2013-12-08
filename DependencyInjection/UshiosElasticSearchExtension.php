@@ -51,7 +51,7 @@ class UshiosElasticSearchExtension extends Extension
             $options = array(
                             'hosts' => $hostsSettings,
                             'logPath' => $logPathSettings,
-                            'logLevel' => $logLevelSettings
+                            'logLevel' => $logLevelSettings,
                             'logging' => true,
                             'logObject' => new Reference('logger'),
                             );
