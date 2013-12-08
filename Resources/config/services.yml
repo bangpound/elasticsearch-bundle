@@ -10,4 +10,4 @@ services:
     ushios_elastic_search.monolog.processor:
         class: %ushios_elastic_search.monolog.processor.class%
         tags:
-            - { name: monolog.processor, channel: elasticsearch }
+            - { name: monolog.handler, channel: elasticsearch }
