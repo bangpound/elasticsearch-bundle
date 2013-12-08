@@ -4,6 +4,7 @@ namespace Ushios\Bundle\ElasticSearchBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\DependencyInjection\Definition;
@@ -51,6 +52,8 @@ class UshiosElasticSearchExtension extends Extension
                             'hosts' => $hostsSettings,
                             'logPath' => $logPathSettings,
                             'logLevel' => $logLevelSettings
+                            'logging' => true,
+                            'logObject' => new Reference('logger'),
                             );
             
             $clientDefinition->setArguments(array($options));
