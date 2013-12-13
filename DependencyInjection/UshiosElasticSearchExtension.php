@@ -45,18 +45,13 @@ class UshiosElasticSearchExtension extends Extension
             $clientDefinition->setClass($infos['class']);
             
             $hostsSettings = $this->hostSettings($infos);
-            $logPathSettings = $this->logPathSettings($infos);
-            $logLevelSettings = $this->logLevelSettings($infos);
-            
+
             $options = array(
-                            'hosts' => $hostsSettings,
-                            'logPath' => $logPathSettings,
-                            'logLevel' => $logLevelSettings,
-                            'logging' => true,
-                            'logObject' => new Reference('logger'),
-                            );
-            
-            $clientDefinition->setArguments(array($options));
+                'hosts' => $hostsSettings,
+            );
+
+//            $clientDefinition->setArguments(array($options, new Reference('logger')));
+//            $clientDefinition->addTag('monolog.logger', array('channel' => 'elasticsearch'));
             
             $clientServiceId = 'ushios_elastic_search_client';
             if ($key == 'default'){
@@ -77,23 +72,5 @@ class UshiosElasticSearchExtension extends Extension
     protected function hostSettings(array $infos)
     {
         return $infos['hosts'];
-    }
-    
-    /**
-     * Make logPath settings
-     * @param array $infos
-     */
-    protected function logPathSettings(array $infos)
-    {
-        return $infos['log_path'];
-    }
-    
-    /**
-     * Make logLevel settings
-     * @param array $infos
-     */
-    protected function logLevelSettings(array $infos)
-    {
-        return $infos['log_level'];
     }
 }

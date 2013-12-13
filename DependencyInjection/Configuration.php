@@ -6,6 +6,8 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Monolog\Logger;
 
+use Elasticsearch\Client;
+
 /**
  * This is the class that validates and merges configuration from your app/config files
  *
@@ -31,17 +33,11 @@ class Configuration implements ConfigurationInterface
                     ->prototype('array')
                     ->children()
                         ->scalarNode('class')
-                            ->defaultValue('Elasticsearch\Client')
+                            ->defaultValue('Ushios\Bundle\ElasticSearchBundle\Client')
                         ->end()
                         ->arrayNode('hosts')
                             ->prototype('scalar')
                             ->end()
-                        ->end()
-                        ->scalarNode('log_path')
-                            ->defaultValue('elasticsearch.log')
-                        ->end()
-                        ->scalarNode('log_level')
-                            ->defaultValue(Logger::WARNING)
                         ->end()
                     ->end()
                 ->end()

@@ -1,13 +1,13 @@
 parameters:
     ushios_elastic_search.resetter.class: Ushios\Bundle\ElasticSearchBundle\Resetter
-    ushios_elastic_search.monolog.processor.class: Monolog\Processor\IntrospectionProcessor
+#    ushios_elastic_search.monolog.processor.class: Monolog\Processor\IntrospectionProcessor
 
 services:
     ushios_elastic_search.resetter:
         class: %ushios_elastic_search.resetter.class%
         arguments: [ @ushios_elastic_search_client, %ushios_elastic_search.setup%, %ushios_elastic_search.index.params%, %ushios_elastic_search.mapping.params% ]
 
-    ushios_elastic_search.monolog.processor:
-        class: %ushios_elastic_search.monolog.processor.class%
-        tags:
-            - { name: monolog.handler, channel: elasticsearch }
+#    ushios_elastic_search.monolog.processor:
+#        class: %ushios_elastic_search.monolog.processor.class%
+#        tags:
+#            - { name: monolog.handler, channel: elasticsearch }
