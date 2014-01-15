@@ -4,7 +4,6 @@ namespace Ushios\Bundle\ElasticSearchBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Monolog\Logger;
 
 use Elasticsearch\Client;
 
@@ -26,7 +25,7 @@ class Configuration implements ConfigurationInterface
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
-        
+
         $rootNode
             ->children()
                 ->arrayNode('client')
@@ -42,7 +41,6 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end();
-                    
 
         return $treeBuilder;
     }

@@ -25,25 +25,25 @@ class UshiosElasticSearchExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        
-        if (!empty($config['client'])){
+
+        if (!empty($config['client'])) {
             $this->clientSettings($config['client'], $container);
         }
-        
+
         $loader->load('services.yml');
     }
-    
+
     /**
      * Reading the config.yml for aws-sdk client.
-     * @param array $configs
+     * @param array            $configs
      * @param ContainerBuilder $container
      */
     protected function clientSettings(array $configs, ContainerBuilder $container)
     {
-        foreach($configs as $key => $infos){
+        foreach ($configs as $key => $infos) {
             $clientDefinition = new Definition();
             $clientDefinition->setClass($infos['class']);
-            
+
             $hostsSettings = $this->hostSettings($infos);
 
             $options = array(
@@ -52,19 +52,19 @@ class UshiosElasticSearchExtension extends Extension
 
 //            $clientDefinition->setArguments(array($options, new Reference('logger')));
 //            $clientDefinition->addTag('monolog.logger', array('channel' => 'elasticsearch'));
-            
+
             $clientServiceId = 'ushios_elastic_search_client';
-            if ($key == 'default'){
+            if ($key == 'default') {
                 $container->setDefinition($clientServiceId, $clientDefinition);
                 $clientServiceId = $clientServiceId.'.default';
-            }else{
+            } else {
                 $clientServiceId = $clientServiceId.'.'.$key;
             }
-    
+
             $container->setDefinition($clientServiceId, $clientDefinition);
         }
     }
-    
+
     /**
      * Make host settings
      * @param array $infos

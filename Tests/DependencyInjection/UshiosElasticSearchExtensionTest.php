@@ -44,7 +44,7 @@ class UshiosElasticSearchExtensionTest extends TestCase
     public function testGetEsClient()
     {
         $es = $this->container->get('ushios_elastic_search_client.default');
-        
+
         $this->assertInstanceOf('\ElasticSearch\Client', $es);
     }
 }

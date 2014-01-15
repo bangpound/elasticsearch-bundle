@@ -1,6 +1,7 @@
 <?php
 
 namespace Ushios\Bundle\ElasticSearchBundle;
+
 use Elasticsearch\Client;
 
 /**
@@ -9,7 +10,7 @@ use Elasticsearch\Client;
 class Resetter
 {
     /**
-     * @var \Elasticsearch\Client
+     * @var Client
      */
     private $client;
 
@@ -30,9 +31,9 @@ class Resetter
 
     /**
      * @param Client $client
-     * @param $setup
-     * @param $index_params
-     * @param $mapping_params
+     * @param array  $setup
+     * @param array  $index_params
+     * @param array  $mapping_params
      */
     public function __construct(Client $client, $setup, $index_params, $mapping_params)
     {
