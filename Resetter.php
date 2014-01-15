@@ -74,14 +74,16 @@ class Resetter
         $result = $client->indices()->create($params);
 
         foreach ($this->setup[$indexName] as $typeName) {
-            $params = array(
-                'index' => $indexName,
-                'type' => $typeName,
-                'body' => array(
-                    $type => $this->mapping_params[$typeName],
-                ),
-            );
-            $result = $client->indices()->putMapping($params);
+            if (!$client->indices()->existsType(array('index' => $indexName, 'type' => $typeName)) && isset($this->mapping_params[$typeName])) {
+                $params = array(
+                    'index' => $indexName,
+                    'type' => $typeName,
+                    'body' => array(
+                        $typeName => $this->mapping_params[$typeName],
+                    ),
+                );
+                $result = $client->indices()->putMapping($params);
+            }
         }
     }
 
