@@ -18,10 +18,8 @@
         "elasticsearch/elasticsearch": "~0.4"
     },
     "require-dev": {
-		
     },
     "suggest": {
-		
     },
     "autoload": {
         "psr-0": { "Ushios\\Bundle\\ElasticSearchBundle": "" }

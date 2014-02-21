@@ -2,8 +2,6 @@
 
 namespace Ushios\Bundle\ElasticSearchBundle;
 
-use Elasticsearch\Client;
-
 /**
  * Deletes and recreates indexes
  */
