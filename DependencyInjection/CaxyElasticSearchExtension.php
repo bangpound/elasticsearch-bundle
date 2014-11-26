@@ -1,6 +1,6 @@
 <?php
 
-namespace Ushios\Bundle\ElasticSearchBundle\DependencyInjection;
+namespace Caxy\Bundle\ElasticSearchBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class UshiosElasticSearchExtension extends Extension
+class CaxyElasticSearchExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -53,7 +53,7 @@ class UshiosElasticSearchExtension extends Extension
 //            $clientDefinition->setArguments(array($options, new Reference('logger')));
 //            $clientDefinition->addTag('monolog.logger', array('channel' => 'elasticsearch'));
 
-            $clientServiceId = 'ushios_elastic_search_client';
+            $clientServiceId = 'caxy_elastic_search_client';
             if ($key == 'default') {
                 $container->setDefinition($clientServiceId, $clientDefinition);
                 $clientServiceId = $clientServiceId.'.default';

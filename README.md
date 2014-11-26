@@ -12,7 +12,7 @@ Create [ElasticSearch](http://www.elasticsearch.org/) client using 'config.yml'
     # composer.json
     
     "require": {
-    	"ushios/elasticsearch-bundle": "0.0.*"
+    	"caxy/elasticsearch-bundle": "0.0.*"
     	...
     }
 
@@ -26,7 +26,7 @@ and run `composer update` command.
     {
         bundles = array(
             // ...
-            new Ushios\Bundle\ElasticSearchBundle\UshiosElasticSearchBundle(),
+            new Caxy\Bundle\ElasticSearchBundle\CaxyElasticSearchBundle(),
         );
         
         retrun bundles();
@@ -39,7 +39,7 @@ config.yml
 
     # app/config/config.php
     
-    ushios_elastic_search:
+    caxy_elastic_search:
         client:
             default:
                 hosts: [ "localhost" ] # Require
@@ -63,9 +63,9 @@ Using default settings ElasticSearch client.
 
 	public function fooAction()
     {
-        $es = $this->container->get('ushios_elastic_search_client');
+        $es = $this->container->get('caxy_elastic_search_client');
         // or
-        $es = $this->container->get('ushios_elastic_search_client.default');
+        $es = $this->container->get('caxy_elastic_search_client.default');
     }
 
 Using named settings. 
@@ -74,7 +74,7 @@ Using named settings.
 
 	public function fooAction()
     {
-        $es = $this->container->get('ushios_elastic_search_client.named');
+        $es = $this->container->get('caxy_elastic_search_client.named');
         get_class($es); // Your\ElasticSearch\Client
     }
 

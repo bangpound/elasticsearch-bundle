@@ -1,12 +1,12 @@
 <?php
 
-namespace Ushios\Bundle\ElasticSearchBundle\Tests\DependencyInjection;
+namespace Caxy\Bundle\ElasticSearchBundle\Tests\DependencyInjection;
 
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Ushios\Bundle\ElasticSearchBundle\DependencyInjection\UshiosElasticSearchExtension;
+use Caxy\Bundle\ElasticSearchBundle\DependencyInjection\CaxyElasticSearchExtension;
 
-class UshiosElasticSearchExtensionTest extends TestCase
+class CaxyElasticSearchExtensionTest extends TestCase
 {
     /**
      * service container.
@@ -31,7 +31,7 @@ class UshiosElasticSearchExtensionTest extends TestCase
             ),
         );
 
-        $extension = new UshiosElasticSearchExtension();
+        $extension = new CaxyElasticSearchExtension();
         $extension->load(array(array('client' => $config)), $this->container);
 
         parent::setUp();
@@ -43,7 +43,7 @@ class UshiosElasticSearchExtensionTest extends TestCase
      */
     public function testGetEsClient()
     {
-        $es = $this->container->get('ushios_elastic_search_client.default');
+        $es = $this->container->get('caxy_elastic_search_client.default');
 
         $this->assertInstanceOf('\ElasticSearch\Client', $es);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ushios\Bundle\ElasticSearchBundle\DependencyInjection;
+namespace Caxy\Bundle\ElasticSearchBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('ushios_elastic_search');
+        $rootNode = $treeBuilder->root('caxy_elastic_search');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
@@ -32,7 +32,7 @@ class Configuration implements ConfigurationInterface
                     ->prototype('array')
                     ->children()
                         ->scalarNode('class')
-                            ->defaultValue('Ushios\Bundle\ElasticSearchBundle\Client')
+                            ->defaultValue('Caxy\Bundle\ElasticSearchBundle\Client')
                         ->end()
                         ->arrayNode('hosts')
                             ->prototype('scalar')

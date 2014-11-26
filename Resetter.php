@@ -1,6 +1,6 @@
 <?php
 
-namespace Ushios\Bundle\ElasticSearchBundle;
+namespace Caxy\Bundle\ElasticSearchBundle;
 
 /**
  * Deletes and recreates indexes

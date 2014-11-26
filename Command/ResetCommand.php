@@ -1,6 +1,6 @@
 <?php
 
-namespace Ushios\Bundle\ElasticSearchBundle\Command;
+namespace Caxy\Bundle\ElasticSearchBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputOption;
@@ -30,7 +30,7 @@ class ResetCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('ushios:elasticsearch:reset')
+            ->setName('elasticsearch:reset')
             ->addOption('index', null, InputOption::VALUE_OPTIONAL, 'The index to reset')
             ->addOption('type', null, InputOption::VALUE_OPTIONAL, 'The type to reset')
             ->setDescription('Reset search indexes')
@@ -42,8 +42,8 @@ class ResetCommand extends ContainerAwareCommand
      */
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
-        $this->setup = $this->getContainer()->getParameter('ushios_elastic_search.setup');
-        $this->resetter = $this->getContainer()->get('ushios_elastic_search.resetter');
+        $this->setup = $this->getContainer()->getParameter('caxy_elastic_search.setup');
+        $this->resetter = $this->getContainer()->get('caxy_elastic_search.resetter');
     }
 
     /**

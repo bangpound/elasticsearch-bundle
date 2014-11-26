@@ -1,9 +1,9 @@
 {
-    "name": "ushios/elasticsearch-bundle",
+    "name": "caxy/elasticsearch-bundle",
     "type": "symfony-bundle",
     "description": "Symfony ElasticSearchBundle",
     "keywords": ["elasticsearch"],
-    "homepage": "https://github.com/ushios/elasticsearch-bundle",
+    "homepage": "https://github.com/caxy/elasticsearch-bundle",
     "license": "MIT",
     "authors": [
         {
@@ -17,14 +17,9 @@
         "symfony/monolog-bundle": "~2.3",
         "elasticsearch/elasticsearch": "~1.0"
     },
-    "require-dev": {
-    },
-    "suggest": {
-    },
     "autoload": {
-        "psr-0": { "Ushios\\Bundle\\ElasticSearchBundle": "" }
+        "psr-4": { "Caxy\\Bundle\\ElasticSearchBundle\\": "" }
     },
-    "target-dir": "Ushios/Bundle/ElasticSearchBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "0.0.x-dev"
