@@ -1,12 +1,12 @@
 <?php
 
-namespace Caxy\Bundle\ElasticSearchBundle\Tests\DependencyInjection;
+namespace Caxy\Bundle\ElasticsearchBundle\Tests\DependencyInjection;
 
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Caxy\Bundle\ElasticSearchBundle\DependencyInjection\CaxyElasticSearchExtension;
+use Caxy\Bundle\ElasticsearchBundle\DependencyInjection\CaxyElasticsearchExtension;
 
-class CaxyElasticSearchExtensionTest extends TestCase
+class CaxyElasticsearchExtensionTest extends TestCase
 {
     /**
      * service container.
@@ -31,7 +31,7 @@ class CaxyElasticSearchExtensionTest extends TestCase
             ),
         );
 
-        $extension = new CaxyElasticSearchExtension();
+        $extension = new CaxyElasticsearchExtension();
         $extension->load(array(array('client' => $config)), $this->container);
 
         parent::setUp();
@@ -43,8 +43,8 @@ class CaxyElasticSearchExtensionTest extends TestCase
      */
     public function testGetEsClient()
     {
-        $es = $this->container->get('caxy_elastic_search_client.default');
+        $es = $this->container->get('caxy_elasticsearch_client.default');
 
-        $this->assertInstanceOf('\ElasticSearch\Client', $es);
+        $this->assertInstanceOf('\Elasticsearch\Client', $es);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Caxy\Bundle\ElasticSearchBundle\Command;
+namespace Caxy\Bundle\ElasticsearchBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputOption;
@@ -42,8 +42,8 @@ class ResetCommand extends ContainerAwareCommand
      */
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
-        $this->setup = $this->getContainer()->getParameter('caxy_elastic_search.setup');
-        $this->resetter = $this->getContainer()->get('caxy_elastic_search.resetter');
+        $this->setup = $this->getContainer()->getParameter('caxy_elasticsearch.setup');
+        $this->resetter = $this->getContainer()->get('caxy_elasticsearch.resetter');
     }
 
     /**

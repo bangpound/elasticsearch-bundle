@@ -1,13 +1,13 @@
 <?php
 
-namespace Caxy\Bundle\ElasticSearchBundle;
+namespace Caxy\Bundle\ElasticsearchBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class CaxyElasticSearchBundle
- * @package Caxy\Bundle\ElasticSearchBundle
+ * Class CaxyElasticsearchBundle
+ * @package Caxy\Bundle\ElasticsearchBundle
  */
-class CaxyElasticSearchBundle extends Bundle
+class CaxyElasticsearchBundle extends Bundle
 {
 }

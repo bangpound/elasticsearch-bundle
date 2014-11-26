@@ -1,7 +1,7 @@
 elasticsearch-bundle
 ==========
 
-Create [ElasticSearch](http://www.elasticsearch.org/) client using 'config.yml'
+Create [Elasticsearch](http://www.elasticsearch.org/) client using 'config.yml'
 
 ---
 
@@ -26,7 +26,7 @@ and run `composer update` command.
     {
         bundles = array(
             // ...
-            new Caxy\Bundle\ElasticSearchBundle\CaxyElasticSearchBundle(),
+            new Caxy\Bundle\ElasticsearchBundle\CaxyElasticsearchBundle(),
         );
         
         retrun bundles();
@@ -39,33 +39,33 @@ config.yml
 
     # app/config/config.php
     
-    caxy_elastic_search:
+    caxy_elasticsearch:
         client:
             default:
                 hosts: [ "localhost" ] # Require
             named:
-                class: Your\ElasticSearch\Client
+                class: Your\Elasticsearch\Client
                 hosts: [ "localhost", "127.0.0.1","localhost:9200", "127.0.0.1:9201" ]
                 log_path: elasticsearch.log # Optional
                 log_level: Logger::WARNING # Optional
 
 ## Defaults
 
-@see [ElasticSearch PHP API -full list of configrations-](http://www.elasticsearch.org/guide/en/elasticsearch/client/php-api/current/_configuration.html#_full_list_of_configurations)
+@see [Elasticsearch PHP API -full list of configrations-](http://www.elasticsearch.org/guide/en/elasticsearch/client/php-api/current/_configuration.html#_full_list_of_configurations)
 
 # Usage
 
 ## Get client from service.
 
-Using default settings ElasticSearch client.
+Using default settings Elasticsearch client.
 
     # Bundle/Controller/Controller.php
 
 	public function fooAction()
     {
-        $es = $this->container->get('caxy_elastic_search_client');
+        $es = $this->container->get('caxy_elasticsearch_client');
         // or
-        $es = $this->container->get('caxy_elastic_search_client.default');
+        $es = $this->container->get('caxy_elasticsearch_client.default');
     }
 
 Using named settings. 
@@ -74,8 +74,8 @@ Using named settings.
 
 	public function fooAction()
     {
-        $es = $this->container->get('caxy_elastic_search_client.named');
-        get_class($es); // Your\ElasticSearch\Client
+        $es = $this->container->get('caxy_elasticsearch_client.named');
+        get_class($es); // Your\Elasticsearch\Client
     }
 
 ## Client

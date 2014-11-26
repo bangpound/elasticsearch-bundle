@@ -1,6 +1,6 @@
 <?php
 
-namespace Caxy\Bundle\ElasticSearchBundle;
+namespace Caxy\Bundle\ElasticsearchBundle;
 
 use Psr\Log\LoggerInterface;
 

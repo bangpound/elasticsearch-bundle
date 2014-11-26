@@ -1,13 +1,13 @@
 parameters:
-    caxy_elastic_search.resetter.class: Caxy\Bundle\ElasticSearchBundle\Resetter
-#    caxy_elastic_search.monolog.processor.class: Monolog\Processor\IntrospectionProcessor
+    caxy_elasticsearch.resetter.class: Caxy\Bundle\ElasticsearchBundle\Resetter
+#    caxy_elasticsearch.monolog.processor.class: Monolog\Processor\IntrospectionProcessor
 
 services:
-    caxy_elastic_search.resetter:
-        class: %caxy_elastic_search.resetter.class%
-        arguments: [ @caxy_elastic_search_client, %caxy_elastic_search.setup%, %caxy_elastic_search.index.params%, %caxy_elastic_search.mapping.params% ]
+    caxy_elasticsearch.resetter:
+        class: %caxy_elasticsearch.resetter.class%
+        arguments: [ @caxy_elasticsearch_client, %caxy_elasticsearch.setup%, %caxy_elasticsearch.index.params%, %caxy_elasticsearch.mapping.params% ]
 
-#    caxy_elastic_search.monolog.processor:
-#        class: %caxy_elastic_search.monolog.processor.class%
+#    caxy_elasticsearch.monolog.processor:
+#        class: %caxy_elasticsearch.monolog.processor.class%
 #        tags:
 #            - { name: monolog.handler, channel: elasticsearch }
