@@ -9,6 +9,10 @@
         {
             "name": "Ushio Shugo",
             "email": "ushio.s@gmail.com"
+        },
+        {
+            "name": "Benjamin Doherty",
+            "email": "bdoherty@caxy.com"
         }
     ],
     "require": {
@@ -22,7 +26,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.0.x-dev"
+            "dev-develop": "1.0.x-dev"
         }
     }
 }
