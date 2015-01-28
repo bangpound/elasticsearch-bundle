@@ -5,7 +5,7 @@ parameters:
 services:
     caxy_elasticsearch.resetter:
         class: %caxy_elasticsearch.resetter.class%
-        arguments: [ @caxy_elasticsearch_client, %caxy_elasticsearch.setup%, %caxy_elasticsearch.index.params%, %caxy_elasticsearch.mapping.params% ]
+        arguments: [ @caxy_elasticsearch.client, %caxy_elasticsearch.setup%, %caxy_elasticsearch.index.params%, %caxy_elasticsearch.mapping.params% ]
 
 #    caxy_elasticsearch.monolog.processor:
 #        class: %caxy_elasticsearch.monolog.processor.class%

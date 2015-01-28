@@ -53,7 +53,7 @@ class CaxyElasticsearchExtension extends Extension
 //            $clientDefinition->setArguments(array($options, new Reference('logger')));
 //            $clientDefinition->addTag('monolog.logger', array('channel' => 'elasticsearch'));
 
-            $clientServiceId = 'caxy_elasticsearch_client';
+            $clientServiceId = 'caxy_elasticsearch.client';
             if ($key == 'default') {
                 $container->setDefinition($clientServiceId, $clientDefinition);
                 $clientServiceId = $clientServiceId.'.default';
